@@ -1,0 +1,13 @@
+apply plugin: 'java-library'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //帮我们生成 META-INF元信息，指明注解处理器的完整路径。
+    compile 'com.google.auto.service:auto-service:1.0-rc3'
+    compile project(":bindview_annotation")
+}
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+sourceCompatibility = "8"
+targetCompatibility = "8"
